@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankieta na Walentynki</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+			background-color: #ffc0cb;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ff4d4d;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Czy chciałbyś być moją Walentynką?</h1>
+        <form id="ankieta">
+            <label for="tak">Tak</label>
+            <input type="radio" id="tak" name="wybor" value="tak">
+            <label for="nie">Nie</label>
+            <input type="radio" id="nie" name="wybor" value="nie">
+            <br><br>
+            <button type="button" onclick="wyslijOdpowiedz()">Wyślij odpowiedź</button>
+            <p id="potwierdzenie"></p>
+        </form>
+    </div>
+
+    <script>
+        function wyslijOdpowiedz() {
+            var formularz = document.getElementById("ankieta");
+            var wybranyOpcja = formularz.querySelector('input[name="wybor"]:checked');
+            if (wybranyOpcja) {
+                if (wybranyOpcja.value === 'tak') {
+                    document.getElementById("potwierdzenie").innerHTML = "Dziękuję! 😊 Możesz być moją Walentynką!";
+                } else {
+                    document.getElementById("potwierdzenie").innerHTML = "Rozumiem. Może innym razem! 😔";
+                }
+            } else {
+                document.getElementById("potwierdzenie").innerHTML = "Proszę zaznacz odpowiedź!";
+            }
+        }
+    </script>
+</body>
+</html>
